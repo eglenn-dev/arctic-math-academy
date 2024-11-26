@@ -1,9 +1,12 @@
 <script>
-    let username = "";
+    import { login } from "./auth.mjs";
+    import { userStore } from "./stores";
+    let email = "";
     let password = "";
-    function handleLogin() {
-        const cred = { username, password };
-        console.log(cred);
+    async function handleLogin() {
+        const user = await login(email, password);
+        $userStore.isLoggedIn = true;
+        $userStore.user = user.user;
     }
 </script>
 
@@ -11,12 +14,7 @@
     <h2>Login Page</h2>
     <form on:submit|preventDefault={handleLogin}>
         <label for="username">Username</label>
-        <input
-            type="text"
-            id="username"
-            name="username"
-            bind:value={username}
-        />
+        <input type="text" id="username" name="username" bind:value={email} />
         <label for="password">Password</label>
         <input
             type="password"

@@ -3,12 +3,18 @@
     import NavBar from "./lib/NavBar.svelte";
     import Post from "./lib/Post.svelte";
     import { route } from "./lib/stores";
+    import { userStore } from "./lib/stores";
 
     let params = {};
 
     window.addEventListener("popstate", (e) => {
-        $route = location.hash.split("?")[0];
-        params = new URLSearchParams(location.hash.split("?")[1]);
+        const [hash, parts] = location.hash.split("?");
+        params = new URLSearchParams(parts);
+        if (hash === "#posts" && !$userStore.isLoggedIn) {
+            location.hash = "#login";
+        } else {
+            route.set(hash);
+        }
     });
 </script>
 
@@ -31,7 +37,7 @@
         {:else if $route === "#login"}
             <Login />
         {:else}
-            <div>404 Not Found</div>
+            <div>404 Not Found: {$route}</div>
         {/if}
     </div>
 </main>
