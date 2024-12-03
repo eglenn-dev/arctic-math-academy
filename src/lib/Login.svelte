@@ -14,7 +14,7 @@
     <h2>Login Page</h2>
     <form on:submit|preventDefault={handleLogin}>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" bind:value={username} />
+        <input type="text" id="username" name="username" bind:value={username}/>
         <label for="password">Password</label>
         <input
             type="password"

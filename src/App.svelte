@@ -36,6 +36,7 @@
         {:else if $route === "#post"}
             <Post {params} />
         {:else if $route === "#login"}
+        <Login />
         <SignUp />
             
         {:else}
