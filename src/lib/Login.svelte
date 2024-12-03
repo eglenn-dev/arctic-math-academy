@@ -23,7 +23,7 @@
             bind:value={password}
         />
         <button type="submit">Login</button>
-        <button type="button">Signup</button>
+        <button type="button">Create Account</button>
     </form>
 </div>
 
