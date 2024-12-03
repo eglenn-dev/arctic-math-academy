@@ -11,6 +11,7 @@
 </script>
 
 <div>
+    <h1>Create a Penguin</h1>
     <h2>Login Page</h2>
     <form on:submit|preventDefault={handleLogin}>
         <label for="username">Username</label>
@@ -23,7 +24,7 @@
             bind:value={password}
         />
         <button type="submit">Login</button>
-        <button type="button">Create Account</button>
+        <p>Don't have an account? Make one now! <br> <a href="#signup" type="button">Create Account</a></p>
     </form>
 </div>
 
