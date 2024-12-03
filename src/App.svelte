@@ -2,6 +2,7 @@
     import Login from "./lib/Login.svelte";
     import NavBar from "./lib/NavBar.svelte";
     import Post from "./lib/Post.svelte";
+    import Quiz from "./lib/Quiz.svelte";
     import { route } from "./lib/stores";
     import { userStore } from "./lib/stores";
 
@@ -36,6 +37,8 @@
             <Post {params} />
         {:else if $route === "#login"}
             <Login />
+        {:else if $route === "#quiz"}
+            <Quiz />
         {:else}
             <div>404 Not Found: {$route}</div>
         {/if}
