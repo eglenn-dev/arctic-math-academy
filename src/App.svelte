@@ -21,7 +21,7 @@
 
 <main>
     <NavBar />
-    <h1>Svelte Routing and Supabase Demo</h1>
+    <h1>Welcome to the Arctic Math Academy!</h1>
 
     <div class="card">
         {#if $route === "#home" || $route === ""}
