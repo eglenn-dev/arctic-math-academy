@@ -26,13 +26,19 @@
         />
         <button type="submit">Login</button>
         <p>
-            Don't have an account? Make one now! <br />
+            Don't have an account? Make one now! <br /> <br />
             <a href="#signup" type="button">Create Account</a>
         </p>
     </form>
 </div>
 
 <style>
+    a {
+        border: 1px solid blueviolet;
+        border-radius: 8px;
+        background-color: darkblue;
+        padding: 0.5em;
+    }
     form {
         display: flex;
         flex-direction: column;
