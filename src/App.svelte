@@ -3,6 +3,7 @@
     import NavBar from "./lib/NavBar.svelte";
     import Post from "./lib/Post.svelte";
     import Quiz from "./lib/Quiz.svelte";
+    import SignUp from "./lib/SignUp.svelte";
     import { route } from "./lib/stores";
     import { userStore } from "./lib/stores";
 
@@ -21,7 +22,7 @@
 
 <main>
     <NavBar />
-    <h1>Svelte Routing and Supabase Demo</h1>
+    <h1>Welcome to the Arctic Math Academy!</h1>
 
     <div class="card">
         {#if $route === "#home" || $route === ""}
@@ -39,6 +40,9 @@
             <Login />
         {:else if $route === "#quiz"}
             <Quiz />
+            <Login />
+        {:else if $route === "#signup"}
+            <SignUp />
         {:else}
             <div>404 Not Found: {$route}</div>
         {/if}
