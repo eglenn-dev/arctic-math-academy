@@ -10,13 +10,15 @@
 </nav>
 
 <style>
+    a,
     a:link,
     a:visited {
-        color: white;
+        color: rgb(62, 62, 62);
         text-decoration: none;
     }
 
     .active {
-        border-bottom: 1px solid gold;
+        
+        border-bottom: 3px solid #fb8414;
     }
 </style>
