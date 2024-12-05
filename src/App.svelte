@@ -9,6 +9,16 @@
 
     let params = {};
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const [hash, parts] = location.hash.split("?");
+        params = new URLSearchParams(parts);
+        if (hash === "#posts" && !$userStore.isLoggedIn) {
+            location.hash = "#login";
+        } else {
+            route.set(hash);
+        }
+    });
+
     window.addEventListener("popstate", (e) => {
         const [hash, parts] = location.hash.split("?");
         params = new URLSearchParams(parts);
@@ -40,7 +50,6 @@
             <Login />
         {:else if $route === "#quiz"}
             <Quiz />
-            <Login />
         {:else if $route === "#signup"}
             <SignUp />
         {:else}

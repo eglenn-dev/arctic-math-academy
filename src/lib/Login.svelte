@@ -1,12 +1,13 @@
 <script>
     import { login } from "./auth.mjs";
     import { userStore } from "./stores";
-    let username = "";
+    let email = "";
     let password = "";
     async function handleLogin() {
-        const user = await login(username, password);
+        const user = await login(email, password);
         $userStore.isLoggedIn = true;
         $userStore.user = user.user;
+        location.hash = "#quiz";
     }
 </script>
 
@@ -14,8 +15,8 @@
     <h1>Create a Penguin</h1>
     <h2>Login Page</h2>
     <form on:submit|preventDefault={handleLogin}>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" bind:value={username}/>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" bind:value={email} />
         <label for="password">Password</label>
         <input
             type="password"
@@ -24,7 +25,10 @@
             bind:value={password}
         />
         <button type="submit">Login</button>
-        <p>Don't have an account? Make one now! <br> <a href="#signup" type="button">Create Account</a></p>
+        <p>
+            Don't have an account? Make one now! <br />
+            <a href="#signup" type="button">Create Account</a>
+        </p>
     </form>
 </div>
 
