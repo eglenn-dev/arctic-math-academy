@@ -2,26 +2,19 @@
     import Login from "./lib/Login.svelte";
     import NavBar from "./lib/NavBar.svelte";
     import Post from "./lib/Post.svelte";
-    import SignUp from "./lib/SignUp.svelte";
     import { route } from "./lib/stores";
-    import { userStore } from "./lib/stores";
 
     let params = {};
 
     window.addEventListener("popstate", (e) => {
-        const [hash, parts] = location.hash.split("?");
-        params = new URLSearchParams(parts);
-        if (hash === "#posts" && !$userStore.isLoggedIn) {
-            location.hash = "#login";
-        } else {
-            route.set(hash);
-        }
+        $route = location.hash.split("?")[0];
+        params = new URLSearchParams(location.hash.split("?")[1]);
     });
 </script>
 
 <main>
     <NavBar />
-    <h1>Welcome to the Arctic Math Academy!</h1>
+    <h1>Svelte Routing and Supabase Demo</h1>
 
     <div class="card">
         {#if $route === "#home" || $route === ""}
@@ -36,12 +29,9 @@
         {:else if $route === "#post"}
             <Post {params} />
         {:else if $route === "#login"}
-        <Login />
-        {:else if $route === "#signup"}
-        <SignUp />
-            
+            <Login />
         {:else}
-            <div>404 Not Found: {$route}</div>
+            <div>404 Not Found</div>
         {/if}
     </div>
 </main>

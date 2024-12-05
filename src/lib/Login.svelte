@@ -1,21 +1,22 @@
 <script>
-    import { login } from "./auth.mjs";
-    import { userStore } from "./stores";
     let username = "";
     let password = "";
-    async function handleLogin() {
-        const user = await login(username, password);
-        $userStore.isLoggedIn = true;
-        $userStore.user = user.user;
+    function handleLogin() {
+        const cred = { username, password };
+        console.log(cred);
     }
 </script>
 
 <div>
-    <h1>Create a Penguin</h1>
     <h2>Login Page</h2>
     <form on:submit|preventDefault={handleLogin}>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" bind:value={username}/>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            bind:value={username}
+        />
         <label for="password">Password</label>
         <input
             type="password"
@@ -24,18 +25,11 @@
             bind:value={password}
         />
         <button type="submit">Login</button>
-        <p>Don't have an account? Make one now! <br> <br> <a href="#signup" type="button">Create Account</a></p>
+        <button type="button">Signup</button>
     </form>
 </div>
 
 <style>
-    a {
-        border: 1px solid blueviolet;
-        border-radius: 8px;
-        background-color: darkblue;
-        padding: .5em;
-        
-    }
     form {
         display: flex;
         flex-direction: column;
