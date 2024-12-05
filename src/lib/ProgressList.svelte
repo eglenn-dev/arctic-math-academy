@@ -1,7 +1,9 @@
 <script>
+  import ProgressBar from "./ProgressBar.svelte";
+  export let progressBars = [];
 </script>
 <div class="progress-info-card">
-    <div class="progress-bar add">
-        <h4>+</h4>
-    </div>
+    {#each progressBars as progressBar}
+        <ProgressBar {progressBar}/>
+    {/each}
 </div>

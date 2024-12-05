@@ -1,8 +1,9 @@
 <script>
-  import Achievements from "./Achievements.svelte";
+  import AchievementsList from "./AchievementsList.svelte";
   import ProgressList from "./ProgressList.svelte";
 
 </script>
+<h1>Hello, {name}</h1>
 <div class="info-card">
     <!-- svelte-ignore a11y_img_redundant_alt -->
     <img src="#" alt="Profile Picture" />
@@ -13,10 +14,20 @@
 <div class="achievement-card">
     <h2>Achievements</h2>
     <ul>
-        <Achievements />
+        <AchievementsList />
     </ul>
 </div>
 <div class="progress-card">
     <h2>Progress</h2>
     <ProgressList />
 </div>
+<style>
+    .info-card{
+        display: flex;
+        flex-direction: row;
+        border: 9px solid #f3f3f3;
+        border-radius: 10px;
+        padding: 1.5rem;
+        background-color: rgba(0, 0, 255, 0.1);
+    }
+</style>
