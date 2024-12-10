@@ -7,20 +7,23 @@
     import SignUp from "./lib/SignUp.svelte";
     import { route } from "./lib/stores";
     import { userStore } from "./lib/stores";
+    import { checkLogin } from "./lib/auth.mjs";
+    import { onMount } from "svelte";
 
     let params = {};
 
-    document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("popstate", (e) => {
+        const protectedPages = ["#posts", "#profile", "#quiz"];
         const [hash, parts] = location.hash.split("?");
         params = new URLSearchParams(parts);
-        if (hash === "#posts" && !$userStore.isLoggedIn) {
+        if (protectedPages.includes(hash) && !$userStore.isLoggedIn) {
             location.hash = "#login";
         } else {
             route.set(hash);
         }
     });
 
-    window.addEventListener("popstate", (e) => {
+    onMount(() => {
         const [hash, parts] = location.hash.split("?");
         params = new URLSearchParams(parts);
         if (hash === "#posts" && !$userStore.isLoggedIn) {
@@ -28,6 +31,7 @@
         } else {
             route.set(hash);
         }
+        checkLogin();
     });
 </script>
 

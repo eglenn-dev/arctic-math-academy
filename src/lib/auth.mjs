@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { userStore } from './stores.js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -35,4 +36,17 @@ export async function signup(email, password, firstName, lastName) {
         return null;
     }
     return data;
+}
+
+export async function checkLogin() {
+    const {
+        data: { session },
+        error
+    } = await supabase.auth.getSession();
+    if (session) {
+        userStore.set({ isLoggedIn: true, user: session?.user });
+    } else {
+        userStore.set({ isLoggedIn: false, user: null });
+    }
+    console.log(session);
 }
