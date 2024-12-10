@@ -3,7 +3,7 @@
   import ProgressList from "./ProgressList.svelte";
 
 </script>
-<h1>Hello, {name}</h1>
+<h1>Hi, {name}</h1>
 <div class="info-card">
     <!-- svelte-ignore a11y_img_redundant_alt -->
     <img src="#" alt="Profile Picture" />
@@ -19,7 +19,9 @@
 </div>
 <div class="progress-card">
     <h2>Progress</h2>
-    <ProgressList />
+    <ul>
+        <ProgressList />
+    </ul>
 </div>
 <style>
     .info-card{
