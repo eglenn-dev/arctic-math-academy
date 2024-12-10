@@ -33,7 +33,7 @@
 
 <main>
     <NavBar />
-    <h1>Welcome to the Arctic Math Academy!</h1>
+    
 
     <div class="card">
         {#if $route === "#home" || $route === ""}
