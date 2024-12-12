@@ -1,4 +1,5 @@
 <script>
+    import Home from "./lib/Home.svelte";
     import Login from "./lib/Login.svelte";
     import NavBar from "./lib/NavBar.svelte";
     import Post from "./lib/Post.svelte";
@@ -7,9 +8,9 @@
     import SignUp from "./lib/SignUp.svelte";
     import { route } from "./lib/stores";
     import { userStore } from "./lib/stores";
-
+ 
     let params = {};
-
+    
     document.addEventListener("DOMContentLoaded", () => {
         const [hash, parts] = location.hash.split("?");
         params = new URLSearchParams(parts);
@@ -37,7 +38,7 @@
 
     <div class="card">
         {#if $route === "#home" || $route === ""}
-            <div>Home page</div>
+            <Home /> 
         {:else if $route === "#posts"}
             <h2>Posts</h2>
             <ul>
@@ -48,10 +49,10 @@
         {:else if $route === "#post"}
             <Post {params} />
         {:else if $route === "#login"}
-            <Login />
+        <Login />
         {:else if $route === "#signup"}
-            <SignUp />
-        {:else if $route === "#quiz"}
+        <SignUp />
+             {:else if $route === "#quiz"}
             <Quiz />
         {:else if $route === "#profile"}
             <Profile />
@@ -62,6 +63,25 @@
 </main>
 
 <style>
+    main {
+      background-color: #A4D4E6; 
+      background-image: linear-gradient(to bottom, #F8F9FA 30%, transparent 30%), 
+                        linear-gradient(to bottom, transparent 30%, #F8F9FA 30%, transparent 70%);
+      background-repeat: repeat-x;
+      background-size: 30px 180px; 
+      border-radius: 25px;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+    p {
+      font-family: 'Open Sans', sans-serif; 
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif; /* Apply Playfair Display to all headings */
+    }
+
     ul {
         list-style-type: none;
         padding: 0;
