@@ -14,17 +14,20 @@
     let params = {};
 
     window.addEventListener("popstate", (e) => {
-        const protectedPages = ["#posts", "#profile", "#quiz"];
+        const protectedPages = ["#profile", "#quiz"];
         const [hash, parts] = location.hash.split("?");
         params = new URLSearchParams(parts);
         if (protectedPages.includes(hash) && !$userStore.isLoggedIn) {
             location.hash = "#login";
+        } else if ($userStore.isLoggedIn && hash === "#login") {
+            location.hash = "#home";
         } else {
             route.set(hash);
         }
     });
 
     onMount(() => {
+        checkLogin();
         const [hash, parts] = location.hash.split("?");
         params = new URLSearchParams(parts);
         if (hash === "#posts" && !$userStore.isLoggedIn) {
@@ -32,7 +35,6 @@
         } else {
             route.set(hash);
         }
-        checkLogin();
     });
 </script>
 
@@ -42,15 +44,6 @@
     <div class="card">
         {#if $route === "#home" || $route === ""}
             <Home />
-        {:else if $route === "#posts"}
-            <h2>Posts</h2>
-            <ul>
-                <li><a href="#post?post_id=1">Post One</a></li>
-                <li><a href="#post?post_id=2">Post Two</a></li>
-                <li><a href="#post?post_id=3">Post Three</a></li>
-            </ul>
-        {:else if $route === "#post"}
-            <Post {params} />
         {:else if $route === "#login"}
             <Login />
         {:else if $route === "#signup"}
