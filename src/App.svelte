@@ -79,21 +79,5 @@
 
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
 
-    p {
-        font-family: "Open Sans", sans-serif;
-    }
 
-    h1,
-    h2,
-    h3 {
-        font-family: "Playfair Display", serif; /* Apply Playfair Display to all headings */
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    li {
-        margin: 0.5em 0;
-    }
 </style>
