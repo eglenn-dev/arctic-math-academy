@@ -1,21 +1,25 @@
 <script>
-     import { login } from "./auth.mjs";
-     import { userStore } from "./stores";
-    let username = "";
+    import { signup } from "./auth.mjs";
+    import { userStore } from "./stores";
+    let email = "";
     let password = "";
-    async function handleLogin() {
-        const user = await login(username, password);
+    async function handleSignup() {
+        const user = await signup(email, password);
         $userStore.isLoggedIn = true;
         $userStore.user = user.user;
+        location.hash = "#quiz";
     }
 </script>
 
-
 <div>
-    <h2> Create an account here!</h2>
-    <form on:submit|preventDefault={handleLogin}>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" bind:value={username} />
+    <h2>Create an account here!</h2>
+    <form on:submit|preventDefault={handleSignup}>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" />
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" />
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" bind:value={email} />
         <label for="password">Password</label>
         <input
             type="password"
@@ -23,18 +27,12 @@
             name="password"
             bind:value={password}
         />
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email"/>
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="fname"/>
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lname"/>
-        <button type="button">Create Account</button>
+        <button type="submit">Create Account</button>
     </form>
 </div>
 
 <style>
-form {
+    form {
         display: flex;
         flex-direction: column;
         gap: 1em;
@@ -46,6 +44,4 @@ form {
     form input {
         height: 30px;
     }
-
-
 </style>

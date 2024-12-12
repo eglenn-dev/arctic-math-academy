@@ -4,9 +4,9 @@
 
 <nav>
     <a href="#home" class={$route === "#home" ? "active" : ""}>Home</a>
-    <a href="#posts" class={$route === "#posts" ? "active" : ""}>Posts</a>
     <a href="#login" class={$route === "#login" ? "active" : ""}>Login</a>
     <a href="#profile" class={$route === "#profile" ? "active" : ""}>Profile</a>
+    <a href="#quiz" class={$route === "#quiz" ? "active" : ""}>Quiz</a>
 </nav>
 
 <style>
@@ -18,7 +18,6 @@
     }
 
     .active {
-        
         border-bottom: 3px solid #fb8414;
     }
 </style>
