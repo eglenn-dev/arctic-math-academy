@@ -77,7 +77,7 @@
         border-radius: 25px;
     }
 
-    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
+    
 
 
 </style>
