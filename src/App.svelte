@@ -2,7 +2,7 @@
     import Home from "./lib/Home.svelte";
     import Login from "./lib/Login.svelte";
     import NavBar from "./lib/NavBar.svelte";
-    import Post from "./lib/Post.svelte";
+    // import Post from "./lib/Post.svelte";
     import Quiz from "./lib/Quiz.svelte";
     import Profile from "./lib/Profile.svelte";
     import SignUp from "./lib/SignUp.svelte";
