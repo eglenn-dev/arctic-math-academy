@@ -79,6 +79,7 @@
     /* Mascot container styling */
     .mascot-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
@@ -148,6 +149,11 @@
         25%,
         75% {
             opacity: 1;
+        }
+    }
+@media (min-width: 800px) {
+        .mascot-container {
+            flex-direction: row;
         }
     }
 </style>

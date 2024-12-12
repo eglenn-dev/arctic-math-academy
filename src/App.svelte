@@ -60,6 +60,7 @@
 
 <style>
     main {
+       
         background-color: #a4d4e6;
         background-image: linear-gradient(
                 to bottom,
@@ -76,6 +77,7 @@
         background-size: 30px 180px;
         border-radius: 25px;
     }
+    
 
     
 
