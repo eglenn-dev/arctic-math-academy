@@ -46,6 +46,8 @@
         width: 20em;
         justify-content: center;
         margin: 0 auto;
+        position: relative;
+        z-index: 100;
     }
 
     form input {
