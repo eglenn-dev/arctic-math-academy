@@ -5,6 +5,7 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function login(email, password) {
+  debugger;
   let { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -50,4 +51,10 @@ export async function checkLogin() {
     userStore.set({ isLoggedIn: false, user: null });
   }
   console.log(session);
+}
+
+
+export async function logout() {
+  await supabase.auth.signOut();
+  userStore.set({ isLoggedIn: false, user: null });
 }
