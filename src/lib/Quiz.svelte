@@ -1,4 +1,5 @@
 <script>
+    import { saveResponses } from "./dbModel.mjs";
     let difficulty = "Easy";
     let questions = [];
     let answers = [];
@@ -43,6 +44,12 @@
             }
         }
         showResults = true;
+        const response = {
+            questions,
+            userAnswers,
+            answers,
+        };
+        saveResponses(response);
     };
 </script>
 
