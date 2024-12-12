@@ -7,7 +7,7 @@
         const user = await login(email, password);
         $userStore.isLoggedIn = true;
         $userStore.user = user.user;
-        location.hash = "#quiz";
+        location.hash = "#profile";
     }
 </script>
 
