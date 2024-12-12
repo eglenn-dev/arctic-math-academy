@@ -10,11 +10,14 @@
 </nav>
 
 <style>
+
     a,
     a:link,
     a:visited {
         color: rgb(62, 62, 62);
         text-decoration: none;
+        position: relative;
+        z-index: 100;
     }
 
     .active {

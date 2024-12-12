@@ -59,6 +59,7 @@
 </main>
 
 <style>
+    
     main {
        
         background-color: #a4d4e6;
@@ -77,9 +78,4 @@
         background-size: 30px 180px;
         border-radius: 25px;
     }
-    
-
-    
-
-
 </style>

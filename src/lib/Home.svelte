@@ -24,7 +24,7 @@
     // Change the quote every 45 seconds
     setInterval(changeQuote, 45000);
 </script>
-<div class="snow"></div>
+
 <h1>Welcome to the Arctic Math Academy!</h1>
 
 <div class="mascot-container">
@@ -65,27 +65,7 @@
 </div>
 
 <style>
-    /* .snow {
-        position: absolute; */
-        /* top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle, white 2px, transparent 2px),
-        radial-gradient(circle, white 3px, transparent 3px);
-        background-size: 10% 10%, 15% 15%;
-        animation: snow 20s linear infinite;
-  }
-
-  @keyframes snow {
-    from {
-      background-position: 0px -200px, 100px -300px, -200px -400px;
-    }
-    to {
-      background-position: 0px 200px, 100px 300px, -200px 400px;
-    }
-
-  } */
+    
     p {
         font-family: "Open Sans", sans-serif;
     }
@@ -102,6 +82,7 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
+        
     }
 
     .mascot-image {
@@ -109,7 +90,7 @@
         border-radius: 50%;
         height: auto;
         border: #ffc83d 30px solid; /* Beak Gold border */
-        z-index: 10;
+       
     }
 
     .mascot-text {
@@ -131,6 +112,9 @@
         text-decoration: none;
         display: inline-block;
         transition: background-color 0.3s ease;
+        position: relative;
+        z-index: 100;
+       
     }
 
     .login button:hover,
