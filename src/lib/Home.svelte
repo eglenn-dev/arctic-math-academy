@@ -47,6 +47,7 @@
                         logout();
                     }}>Log Out</button
                 >
+                <a href="#quiz" type="button">Lets Play!</a>
             </div>
         </div>
     {:else}
