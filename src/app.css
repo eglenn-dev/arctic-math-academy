@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,7 +14,31 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+body {
+  position: relative;
+  z-index: 1;
+}
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, white 2px, transparent 2px),
+    radial-gradient(circle, white 3px, transparent 3px);
+  background-size: 10% 10%, 15% 15%;
+  animation: snow 20s linear infinite;
+}
 
+@keyframes snow {
+  from {
+    background-position: 0px -200px, 100px -300px, -200px -400px;
+  }
+  to {
+    background-position: 0px 200px, 100px 300px, -200px 400px;
+  }
+}
 a {
   font-weight: 500;
   color: #8489f6;
@@ -39,7 +65,7 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -74,5 +100,11 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #213547;
+    background-color: #fff;
   }
 }

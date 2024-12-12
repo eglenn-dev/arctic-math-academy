@@ -65,23 +65,24 @@
 </div>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
-
+    
     p {
         font-family: "Open Sans", sans-serif;
     }
 
     h1,
-    h2,
-    h3 {
+    h2
+     {
         font-family: "Playfair Display", serif; /* Apply Playfair Display to all headings */
     }
 
     /* Mascot container styling */
     .mascot-container {
         display: flex;
+        flex-direction: column;
         align-items: center;
         gap: 10px;
+        
     }
 
     .mascot-image {
@@ -89,6 +90,7 @@
         border-radius: 50%;
         height: auto;
         border: #ffc83d 30px solid; /* Beak Gold border */
+       
     }
 
     .mascot-text {
@@ -110,6 +112,9 @@
         text-decoration: none;
         display: inline-block;
         transition: background-color 0.3s ease;
+        position: relative;
+        z-index: 100;
+       
     }
 
     .login button:hover,
@@ -149,6 +154,11 @@
         25%,
         75% {
             opacity: 1;
+        }
+    }
+@media (min-width: 800px) {
+        .mascot-container {
+            flex-direction: row;
         }
     }
 </style>

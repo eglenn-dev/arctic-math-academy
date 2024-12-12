@@ -115,14 +115,14 @@
 </div>
 
 <style>
-    .info-card {
+    /* .info-card {
         display: flex;
         flex-direction: row;
         border: 9px solid #f3f3f3;
         border-radius: 10px;
         padding: 1.5rem;
         background-color: rgba(0, 0, 255, 0.1);
-    }
+    } */
 
     ul {
         display: flex;

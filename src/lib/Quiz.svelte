@@ -54,7 +54,7 @@
 </script>
 
 <h1>Math Quiz</h1>
-
+<div class="quiz">
 <label for="difficulty">Difficulty:</label>
 <select id="difficulty" bind:value={difficulty} on:change={generateQuestions}>
     <option value="Easy">Easy</option>
@@ -93,3 +93,10 @@
         </p>
     {/each}
 {/if}
+</div>
+<style>
+    .quiz{
+        position: relative;
+        z-index: 100;
+    }
+</style>

@@ -1,5 +1,5 @@
-import { createClient } from '@supabase/supabase-js';
-import { userStore } from './stores.js';
+import { createClient } from "@supabase/supabase-js";
+import { userStore } from "./stores.js";
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
@@ -30,10 +30,14 @@ export async function signup(email, password, firstName, lastName) {
   const username = email.split("@")[0];
   const fullName = firstName + lastName;
 
-  const { data: insertData, error: insertError } = await supabase.from('profiles').update({
-    username,
-    full_name: fullName
-  }).eq('id', userId).select();
+  const { data: insertData, error: insertError } = await supabase
+    .from("profiles")
+    .update({
+      username,
+      full_name: fullName,
+    })
+    .eq("id", userId)
+    .select();
   if (error) {
     return null;
   }
@@ -43,7 +47,7 @@ export async function signup(email, password, firstName, lastName) {
 export async function checkLogin() {
   const {
     data: { session },
-    error
+    error,
   } = await supabase.auth.getSession();
   if (session) {
     userStore.set({ isLoggedIn: true, user: session?.user });
@@ -52,7 +56,6 @@ export async function checkLogin() {
   }
   console.log(session);
 }
-
 
 export async function logout() {
   await supabase.auth.signOut();
